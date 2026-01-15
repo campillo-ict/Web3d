@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene cursor="rayOrigin: mouse">
+        <a-assets>
+            <img id="fons" src="assets/espacio1.jpg" />
+            <img id="texturaterra" src="assets/SUELO.png" />
+            <img id="astronauta" src="assets/ASTRONAUTA.png" />
+            <img id="bolas" src="assets/bolas.png" />
+            <img id="tierra" src="assets/tierra.jpg" />
+
+        </a-assets>
+        <a-sky src="#fons"></a-sky>
+        <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" src="#texturaterra"></a-plane>
+        <a-plane id="esmou" position="-1 3 -11" rotation="0 29 0" radius="12" src="#astronauta" geometry="primitive: circle"
+            animation="property: position; to: -1 4 -30; dur: 5000; dir: alternate; loop: true"> </a-plane>
+        <a-sphere position="-4 3 0" rotation="0 107 38" src="#bolas" depth="1" height="1" width="2"
+            animation="property: rotation; to: 0 360 0; dur: 4000; loop: true" material=""
+            geometry="primitive: sphere"></a-sphere>
+        <a-dodecahedron id="esmou2" position="8 2 -6" rotation="0 30 0" radius="3" src="#tierra">
+        <a-sphere id="esmou3" position="-0.49992 4.76457 0.28545" rotation="0 30 0" depth="0.50" height="0.50" width="0.50"></a-sphere>
+        <light type="point" color="#FFFFFF" intensity="1" distance="50" decay="2" position="0 30 0"></light>
+    </a-scene>
+
+
+    <script>
+        let unobjecte = document.querySelector("#esmou");
+
+        unobjecte.addEventListener("click", () => {
+            unobjecte.setAttribute("animation", {
+                property: "position",
+                to: "8 40 -6",
+                dur: 10000,
+                dir: "alternate",
+                loop: "true"
+            });
+        });
+
+        let unobjecte2 = document.querySelector("#esmou2");
+
+        unobjecte2.addEventListener("click", () => {
+            unobjecte2.setAttribute("animation", {
+                property: "rotation",
+                to: "0 360 0",
+                dur: 1000,
+                loop: "true"
+            });
+        });
+
+
+        let unobjecte3 = document.querySelector("#esmou3");
+
+        unobjecte3.addEventListener("click", () => {
+            unobjecte3.setAttribute("animation", {
+                property: "light.intensity",
+                to: "0 30 0",
+                
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+
+
